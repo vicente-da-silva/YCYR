@@ -1,6 +1,7 @@
 # YCYR
 ## V1
 Open Source Clothing Pattern Creation
+
 This was a fun project I did which allows you to create a Hoodie pattern using your own body measurements, a bespoke pattern just for you!
 * Once the pattern is created you can create a pdf and print it in 1:1 scale and cut your material from that.
 * There are default ease mesurements sets allowing you to create S M L patterns.
