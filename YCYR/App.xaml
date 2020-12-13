@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:local="clr-namespace:YCYR.Views"
+             mc:Ignorable="d"
+             x:Class="YCYR.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <Thickness x:Key="padding">0,0,0,0</Thickness>
+            <Color x:Key="DarkBackGroundColor">Black</Color>
+            <Color x:Key="LightTextColor">#85D4E3</Color>
+            <Color x:Key="DarkTextColorBorders">#212b2c</Color>
+
+            <Color x:Key="LightBackGroundColor">#171f21</Color>
+            <Color x:Key="DarkTextColor">#85D4E3</Color>
+            <x:Single x:Key="CornerRadius">9</x:Single>
+            <x:Int32 x:Key="CornerRadiusButton">9</x:Int32>
+
+
+            <OnPlatform x:Key="FontFamilyName" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Ubuntu-Regular" />
+                <On Platform="Android" Value="fonts/Ubuntu-Regular.ttf#Ubuntu-Regular" />
+                <On Platform="UWP" Value="Assets/Fonts/Ubuntu-Regular.ttf#Ubuntu" />
+            </OnPlatform>
+
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource LightBackGroundColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource DarkTextColor}" />
+            </Style>
+
+           
+            <Style TargetType="{x:Type Entry}" ApplyToDerivedTypes="False">
+                <Setter Property="Margin" Value="{StaticResource padding}" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="local:NumericValidationBehavior.AttachBehavior" Value="true" />
+                <Setter Property="TextColor"  Value="{StaticResource LightTextColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBackGroundColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyName}" />
+            </Style>
+            
+            <Style TargetType="{x:Type Label}" ApplyToDerivedTypes="False">
+                <Setter Property="TextColor"  Value="{StaticResource LightTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyName}" />
+            </Style>
+            
+            <Style TargetType="{x:Type Button}" ApplyToDerivedTypes="False">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkTextColorBorders}"  />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyName}" />
+                <Setter Property="BorderColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="CornerRadius" Value="{StaticResource CornerRadiusButton}" />
+            </Style>
+            
+            <Style TargetType="{x:Type ScrollView}" ApplyToDerivedTypes="False">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBackGroundColor}" />
+            </Style>
+            
+            <Style TargetType="{x:Type StackLayout}" ApplyToDerivedTypes="False">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBackGroundColor}" />
+            </Style>
+            
+            <Style x:Key="stackReverse" TargetType="{x:Type StackLayout}" ApplyToDerivedTypes="False">
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackGroundColor}" />
+            </Style>
+            
+            <Style x:Key="labelReverse" TargetType="{x:Type Label}" ApplyToDerivedTypes="False">
+                <Setter Property="TextColor"  Value="{StaticResource DarkTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyName}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

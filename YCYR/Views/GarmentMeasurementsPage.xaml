@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:YCYR.Views"
+             mc:Ignorable="d"
+             x:Class="YCYR.Views.GarmentMeasurementsPage"
+             >
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource stackReverse}">
+            <Label Text="{Binding Title}" FontSize="Title" Style="{StaticResource labelReverse}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Order="Primary" Priority="0" IconImageSource="small.png"  Text="Small" Clicked="ButtonSmallMeasurments_Clicked"/>-->
+        <ToolbarItem Order="Primary" Priority="1" IconImageSource="medium.png"  Text="Medium" Clicked="ButtonMediumMeasurments_Clicked"/>
+        <!--<ToolbarItem Order="Primary" Priority="2" IconImageSource="large.png"  Text="Large" Clicked="ButtonLargeMeasurments_Clicked"/>-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="MeasurementsStack" Orientation="Horizontal">
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Bodice" FontSize="Title"/>
+                    <local:EditControl x:Name="ecGarmentBodiceLength" LabelText="Bodice Length" 
+                                       Max="{Binding MGarmentBodiceLength.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentBodiceLength.Min, Mode=OneWay}" 
+                                       Val="{Binding MGarmentBodiceLength.Value, Mode=TwoWay}"></local:EditControl>
+                    
+
+                    <Label Text="Hood" FontSize="Title"/>
+                    <local:EditControl x:Name="ecGarmentHoodLenghtFromTemple" LabelText="Hood Length From Temple"  
+                                       Max="{Binding MGarmentHoodLenghtFromTemple.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentHoodLenghtFromTemple.Min, Mode=OneWay}" 
+                                       Val="{Binding MGarmentHoodLenghtFromTemple.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecGarmentHoodZipEdge" LabelText="Hood Zip Edge" 
+                                       Max="{Binding MGarmentHoodZipEdge.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentHoodZipEdge.Min, Mode=OneWay}" 
+                                       Val="{Binding MGarmentHoodZipEdge.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecGarmentHoodSetBackFromZip" LabelText="Hood Set Back From Zip"   
+                                       Max="{Binding MGarmentHoodSetBackFromZip.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentHoodSetBackFromZip.Min, Mode=OneWay}"   
+                                       Val="{Binding MGarmentHoodSetBackFromZip.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecGarmentHoodInsertWidth" LabelText="Hood Insert Width"  
+                                       Max="{Binding MGarmentHoodInsertWidth.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentHoodInsertWidth.Min, Mode=OneWay}"   
+                                       Val="{Binding MGarmentHoodInsertWidth.Value, Mode=TwoWay}"></local:EditControl>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Construction" FontSize="Title"/>
+                    <local:EditControl x:Name="ecGarmentHemAllowance" LabelText="Hem Allowance"   
+                                       Max="{Binding MGarmentHemAllowance.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentHemAllowance.Min, Mode=OneWay}"   
+                                       Val="{Binding MGarmentHemAllowance.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecGarmentSeamAllowance" LabelText="Seam Allowance"   
+                                       Max="{Binding MGarmentSeamAllowance.Max, Mode=OneWay}" 
+                                       Min="{Binding MGarmentSeamAllowance.Min, Mode=OneWay}"   
+                                       Val="{Binding MGarmentSeamAllowance.Value, Mode=TwoWay}"></local:EditControl>
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

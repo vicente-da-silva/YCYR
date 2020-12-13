@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\NewItemPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\NewItemPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaScene.TouchManipulation" Version="2.1.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
+    <PackageReference Include="TouchTracking.Forms" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YCYRDraw\YCYRDraw.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\EaseMeasurementsPage.xaml.cs">
+      <DependentUpon>EaseMeasurementsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\BodyMeasurementsPage.xaml.cs">
+      <DependentUpon>BodyMeasurementsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GarmentMeasurementsPage.xaml.cs">
+      <DependentUpon>GarmentMeasurementsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PatternPage.xaml.cs">
+      <DependentUpon>PatternPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EditControl.xaml.cs">
+      <DependentUpon>EditControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\GarmentMeasurementsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

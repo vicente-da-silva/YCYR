@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:YCYR.Views"
+             mc:Ignorable="d"
+             x:Class="YCYR.Views.EditControl"
+             x:Name="EditControlStack">
+
+        <StackLayout  Orientation="Vertical" BackgroundColor="Transparent">
+            <Frame BackgroundColor="{StaticResource DarkTextColorBorders}" CornerRadius="{StaticResource CornerRadius}" Padding="3" HasShadow="False" >
+            <Frame BackgroundColor="{StaticResource LightBackGroundColor}" CornerRadius="{StaticResource CornerRadius}" Padding="6" HasShadow="False" >
+                <StackLayout  x:Name="stackEntry"  Orientation="Vertical" BackgroundColor="Transparent">
+        
+                    <Label x:Name="labelMeasurement"  
+                       LineBreakMode="WordWrap" HorizontalTextAlignment="Center" 
+                       WidthRequest="180"
+                       Text="{Binding LabelText, Source={x:Reference EditControlStack}}"/>
+
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+
+                        <Button x:Name="DecButton" 
+                        BindingContext="{x:Reference Name=entryMeasurement}"
+                        FontSize="Large"
+                        WidthRequest="50"  
+                        HeightRequest="50" 
+                        Text="-" 
+                        Clicked="DecButton_Clicked"/>
+
+                        <Label x:Name="entryMeasurement" FontSize="Large" 
+                        WidthRequest="80"
+                        MinimumWidthRequest="80"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="CenterAndExpand"
+                        Text="{Binding Val, Mode=TwoWay, Source={x:Reference EditControlStack}}"
+                        />
+
+                        <Button x:Name="IncButton" 
+                        BindingContext="{x:Reference Name=entryMeasurement}"
+                        FontSize="Large"
+                        WidthRequest="50"  
+                        HeightRequest="50" 
+                        Text="+" 
+                        Clicked="IncButton_Clicked"/>
+
+                    </StackLayout>
+
+                    <StackLayout Padding="0" Orientation="Horizontal"  BackgroundColor="Transparent">
+                        <Label   
+                            HorizontalOptions="Start" 
+                            VerticalOptions="CenterAndExpand"
+                            FontSize="Micro"
+                             Text="{Binding Min, Source={x:Reference EditControlStack}}"/>
+
+                        <Slider x:Name="slider" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="{StaticResource DarkBackGroundColor}"
+                            ThumbColor="{StaticResource LightTextColor}"
+                            MinimumTrackColor="{StaticResource LightTextColor}"
+                            MaximumTrackColor="{StaticResource LightTextColor}"/>
+
+                        <Label  
+                            HorizontalOptions="End" 
+                            VerticalOptions="CenterAndExpand"
+                            FontSize="Micro"
+                            Text="{Binding Max, Source={x:Reference EditControlStack}}"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </Frame>
+    </StackLayout>
+</StackLayout>

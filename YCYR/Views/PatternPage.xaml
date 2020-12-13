@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sc="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:tt="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+             mc:Ignorable="d"
+             x:Class="YCYR.Views.PatternPage"
+             Appearing="ContentPage_Appearing">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource stackReverse}">
+            <Label Text="{Binding Title}" FontSize="Title" Style="{StaticResource labelReverse}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Priority="0" IconImageSource="recentre.png"  Text="Recentre" Clicked="Recentre_Clicked"/>
+        <ToolbarItem Order="Primary" Priority="1" IconImageSource="basepattern.png"  Text="Show/Hide Base Pattern" Clicked="ShowHideBasePattern_Clicked"/>
+        <ToolbarItem Order="Primary" Priority="2" IconImageSource="save.png"  Text="Create PDF" Clicked="CreatePDF_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid >
+        <Grid >
+            <sc:SKCanvasView x:Name="canvasView" BackgroundColor="{StaticResource DarkBackGroundColor}" EnableTouchEvents="True"
+                         PaintSurface="SKCanvasView_PaintSurface"/>
+            <Grid.Effects>
+                <tt:TouchEffect x:Name="touchEffect" Capture="True" TouchAction="OnTouchEffectAction" />
+            </Grid.Effects>
+        </Grid>
+
+        <Grid x:Name="stackActivity" IsVisible="False" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ActivityIndicator Grid.Row="1" x:Name="busyIndicator" IsRunning="False"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Color="{StaticResource LightTextColor}"/>
+            <Label Grid.Row="2" x:Name="activityLabel" VerticalOptions="Center" HorizontalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

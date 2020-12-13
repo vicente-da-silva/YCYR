@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:YCYR.Views"
+             mc:Ignorable="d"
+             x:Class="YCYR.Views.EaseMeasurementsPage"
+             >
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource stackReverse}">
+            <Label Text="{Binding Title}" FontSize="Title" Style="{StaticResource labelReverse}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Priority="0" IconImageSource="small.png"  Text="Small" Clicked="ButtonSmallMeasurments_Clicked"/>
+        <ToolbarItem Order="Primary" Priority="1" IconImageSource="medium.png"  Text="Medium" Clicked="ButtonMediumMeasurments_Clicked"/>
+        <ToolbarItem Order="Primary" Priority="2" IconImageSource="large.png"  Text="Large" Clicked="ButtonLargeMeasurments_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout x:Name="MeasurementsStack" Orientation="Horizontal">
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Head" FontSize="Title"/>
+                    <local:EditControl x:Name="ecCircTempleToTempleEase" LabelText="Temple To Temple Ease"                
+                                       Max="{Binding MCircTempleToTempleEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MCircTempleToTempleEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MCircTempleToTempleEase.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecShoulderToShoulderOverHeadEase" LabelText="Shoulder To Shoulder Over Head Ease"  
+                                       Max="{Binding MShoulderToShoulderOverHeadEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MShoulderToShoulderOverHeadEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MShoulderToShoulderOverHeadEase.Value, Mode=TwoWay}"></local:EditControl>
+
+                    <Label Text="Torso" FontSize="Title"/>
+                    <local:EditControl x:Name="ecNeckCircumferenceEase" LabelText="Neck Circumference Ease"              
+                                       Max="{Binding MNeckCircumferenceEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MNeckCircumferenceEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MNeckCircumferenceEase.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecChestCirEasec" LabelText="Chest Circumference Ease"             
+                                       Max="{Binding MChestCirEasec.Max, Mode=OneWay}" 
+                                       Min="{Binding MChestCirEasec.Min, Mode=OneWay}" 
+                                       Val="{Binding MChestCirEasec.Value, Mode=TwoWay}"></local:EditControl>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Arm" FontSize="Title"/>
+                    <local:EditControl x:Name="ecShoulderCircEase" LabelText="Shoulder Circumference Ease"          
+                                       Max="{Binding MShoulderCircEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MShoulderCircEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MShoulderCircEase.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecBicepCircEase" LabelText="Bicep Circumference Ease"             
+                                       Max="{Binding MBicepCircEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MBicepCircEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MBicepCircEase.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecForeArmCircEase" LabelText="ForeArm Circumference Ease"           
+                                       Max="{Binding MForeArmCircEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MForeArmCircEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MForeArmCircEase.Value, Mode=TwoWay}"></local:EditControl>
+                    <local:EditControl x:Name="ecWristCircEase" LabelText="Wrist Circumference Ease"             
+                                       Max="{Binding MWristCircEase.Max, Mode=OneWay}" 
+                                       Min="{Binding MWristCircEase.Min, Mode=OneWay}" 
+                                       Val="{Binding MWristCircEase.Value, Mode=TwoWay}"></local:EditControl>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
